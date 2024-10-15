@@ -7,7 +7,8 @@ base = mysql.connector.connect(
     host = "localhost",
     user="root",
     database="zoo"
-    )
+)
+cursor = base.cursor()
 app = Flask(__name__)
 # {{ url_for('home') }}
 @app.route('/')
@@ -39,13 +40,18 @@ def choixQuestion(idUser:int):
     random = Random(idUser)
     return random.choice(phrase)
 
+def getReponse(idUser:int):
+    requete = ""
+    
+    cursor = base.cursor()
+    return cursor.fetchall()
+
 def ajoutAnimal(animal:Animal):
     infos = animal.getInfos()
     requete = "INSERT INTO Animal (idAnimal,nomAnimal,dateNaissance,dateArrivee) VALUES ("
     for i in infos:
         requete = requete + i+","
     requete += ")"
-    cursor = base.cursor()
     cursor.execute(requete)
     base.commit()
     
