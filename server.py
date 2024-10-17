@@ -1,6 +1,5 @@
 from flask import Flask,render_template
 from requete import Base
-import mysql.connector
 # Il faut avoir les accès suivant sur la base de données
 
 base = Base()
