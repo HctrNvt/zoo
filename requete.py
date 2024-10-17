@@ -3,13 +3,13 @@ from random import Random
 from entite import Animal
 class Base:
     def __init__(self):
-        self.base = mysql.connector.connection({
+        self.base = mysql.connector.connect({
                 'user': 'root',
                 'password': 'mdp',
                 'host': 'localhost',
                 'database': 'zoo'
             })
-        self.cursor = base.cursor()
+        self.cursor = self.base.cursor()
 
     # Ajoute un animal à la base de données, animal doit contenir l'objet Animal du fichier entite.py
     def ajoutAnimal(self,animal:Animal):
