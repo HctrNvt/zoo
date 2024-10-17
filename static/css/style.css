@@ -1,0 +1,106 @@
+html,
+head {
+  background-color: #d9d9d9;
+}
+
+button {
+  --color: #5e4d45;
+  font-family: Arial;
+  display: inline-block;
+  width: 6em;
+  height: 2.6em;
+  line-height: 2.5em;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 20px;
+  font-size: 17px;
+  z-index: 1;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 6px;
+  position: relative;
+}
+
+button::before {
+  position: absolute;
+  content: "";
+  background: var(--color);
+  width: 150px;
+  height: 200px;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+button:hover {
+  color: #d9d9d9;
+}
+
+button:before {
+  top: 100%;
+  left: 100%;
+  transition: 0.3s all;
+}
+
+button:hover::before {
+  top: -30px;
+  left: -30px;
+}
+
+img {
+  position: top;
+  height: 15%;
+  width: 15%;
+}
+nav {
+  background-color: #b49a83;
+  padding: 0 20px;
+  border-radius: 40px;
+  box-shadow: 0 10px 40px rgba(159, 162, 177, 0.8);
+  display: flex;
+  overflow: hidden;
+  overflow-x: auto;
+  position: relative;
+}
+
+nav h1 {
+  text-decoration: underline;
+  font-size: 300%;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.centre {
+  margin-left: 75%;
+}
+
+.Texte {
+  font-family: Arial;
+  color: #5e4d45;
+}
+
+.Texte h1 {
+  align-self: center;
+}
+
+.coolinput {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  position: static;
+  max-width: 240px;
+  font-size: 400%;
+}
+.coolinput input.input {
+  width: 180px;
+  height: 30px;
+  padding: 11px 10px;
+  font-size: 1rem;
+  border: 2px #5e4d45 solid;
+  border-radius: 5px;
+  background: #e8e8e8;
+}
+
+.coolinput input.input:focus {
+  outline: none;
+}
