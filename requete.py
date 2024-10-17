@@ -1,4 +1,5 @@
 import mysql.connector
+from random import Random
 from entite import Animal
 class base:
     def __init__(self):
@@ -31,3 +32,17 @@ class base:
         requete = "SELECT * FROM animal"
         self.cursor = self.base.cursor(requete)
         return self.cursor.fetchall()
+    # Renvoie la question personnalisé de l'utilisateur
+    # Après avoir fait le premier ajout d'utilisateur, il ne faut plus modifier la quantité/contenus de phrase
+    def getQuestionSecurite(self,idUser:int):  
+        phrase = ["Quel est votre nom de famille ?",
+                  "Quel est le nom de votre père ?",
+                  "Quel était le surnom de votre meilleur ami d'enfance ?",
+                  "Dans quelle ville vos parents se sont-ils rencontrés ?",
+                  """Combien d’animaux de compagnie aviez-vous à l’âge de 10 ans ?""",
+                  """Comment s’appelait votre instituteur préféré ?""",
+                  "Quel est votre film préféré ?"]
+
+        # Si on change le nombre de questions de sécurité différente, le système ne fonctionne pas
+        random = Random(idUser)
+        return random.choice(phrase)
