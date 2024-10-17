@@ -21,7 +21,7 @@ class Base:
         requete += ")"
         print(requete)
         self.cursor.execute(requete)
-        base.commit()
+        self.base.commit()
     # Récupère l'enregistrement du soigneur lié à l'id donné
     def getUser(self,idUser:int):
         requete = "SELECT * FROM soigneur WHERE Id_soigneur = "+str(idUser)
