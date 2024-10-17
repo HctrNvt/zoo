@@ -1,7 +1,7 @@
 import mysql.connector
 from random import Random
 from entite import Animal
-class base:
+class Base:
     def __init__(self):
         self.base = mysql.connector.connection({
                 'user': 'root',
