@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="../static/css/style.css"
+    />
+    <title>Menu - Zoo</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <img src="../static/image/logo.png" class="logo"/>
+        
+        {% if 'user_id' in session %}
+
+          <button class="centre" onclick="window.location.href = '{{ url_for('logout') }}';">Deconnexion</button>
+
+          <button class="centre" onclick="window.location.href = '{{ url_for('animaux') }}';">Ajouter des animaux</button>
+          <button class="centre" onclick="window.location.href = '{{ url_for('ajout_soigneur') }}';">Ajouter un soigneur</button>
+          
+        {% else %}
+          <button class="centre" onclick="window.location.href = '{{ url_for('login') }}';">Connexion</button>
+        {% endif %}
+      </nav>
+    </header>
+    <br />
+    <center><h1 class="Texte">Bienvenue sur le site officiel du Zoo de Zoolandia !</h1></center>
+    <div class="textBlock">
+      <a class="Texte">
+        Plongez dans un univers fascinant où la nature et la conservation se rencontrent. Notre zoo abrite une variété impressionnante d'animaux issus des quatre coins du monde, offrant une expérience unique aux visiteurs de tous âges.
+        Découvrez nos enclos immersifs, participez à nos activités éducatives et apprenez-en davantage sur les efforts de protection des espèces menacées. Que vous veniez en famille, entre amis ou en solo, nous avons de nombreuses surprises en réserve !
+      </a>
+      <img src="../static/image/zoo.jpg" />
+    </div>
+
+    <div class="textBlock">
+      <img src="../static/image/zoo2.png" />
+      <a class="Texte">
+        Rejoignez-nous pour une journée d’aventures inoubliables et engagez-vous avec nous pour un avenir plus durable. Votre visite contribue directement à la préservation de la faune et à l'éducation des générations futures. Préparez-vous à explorer, à apprendre et à vous émerveiller !
+      </a>
+    </div>
+  </body>
+</html>

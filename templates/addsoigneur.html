@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>Ajout de soigneur - Zoo</title>
+  </head>
+  <body>
+    <nav>
+      <img
+        src="{{ url_for('static', filename='image/logo.png') }}"
+        alt="Logo"
+      />
+      <h1 class="Texte">Ajout de soigneur</h1>
+    </nav>
+
+    <center>
+      <h1 class="Texte">Ajouter un soigneur dans la base de données</h1>
+      <form method="POST" action="{{ url_for('ajout_soigneur') }}">
+        <div class="coolinput">
+          <input
+            type="text"
+            name="nom"
+            placeholder="Nom"
+            class="input"
+            required
+          />
+        </div>
+        <br />
+        <div class="coolinput">
+          <input
+            type="text"
+            name="prenom"
+            placeholder="Prénom"
+            class="input"
+            required
+          />
+        </div>
+        <br />
+        <div class="coolinput">
+          <label for="grade">Grade</label>
+          <select name="grade" class="input" required>
+            <option value="" disabled selected>Choisir un grade</option>
+            {% for grade in grades %}
+            <option value="{{ grade.id_grade }}">
+              {{ grade.nom }} (Niveau: {{ grade.niveau }})
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+        <br />
+        <button type="submit">Envoyer</button>
+      </form>
+
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <div class="flash-message">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+      </div>
+      {% endif %} {% endwith %}
+    </center>
+  </body>
+</html>

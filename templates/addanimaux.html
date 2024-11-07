@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>Ajout d'animaux - Zoo</title>
+  </head>
+  <body>
+    <nav>
+      <img
+        src="{{ url_for('static', filename='image/logo.png') }}"
+        alt="Logo"
+      />
+      <h1 class="Texte">Ajout d'animaux</h1>
+    </nav>
+
+    <center>
+      <form method="POST">
+        <br />
+        <div class="coolinput">
+          <input
+            type="text"
+            name="nom"
+            placeholder="Nom"
+            class="input"
+            required
+          />
+        </div>
+        <br />
+        <h2>Date de naissance</h2>
+        <div class="coolinput">
+          <input type="date" name="date_naissance" class="input" required />
+        </div>
+        <br />
+        <h2>Date d'arrivée</h2>
+        <div class="coolinput">
+          <input type="date" name="date_arrivee" class="input" required />
+        </div>
+        <h2>Date de départ</h2>
+        <div class="coolinput">
+          <input type="date" name="date_depart" class="input" required />
+        </div>
+        <br />
+        <button type="submit">Envoyer</button>
+      </form>
+
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <div class="flash-message">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+      </div>
+      {% endif %} {% endwith %}
+    </center>
+  </body>
+</html>

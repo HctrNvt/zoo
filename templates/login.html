@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <head>
+            <link
+            rel="stylesheet"
+            href="../static/css/style.css"
+          />
+    </head>
+    <body>
+        <h1 class="Texte">Connexion à la base de données</h1>
+        <a class="Texte">Veuillez entrer votre email et ainsi que votre mot de passe</a>
+
+        <center>
+            <form method="POST">
+                <h2 class="Texte">E-mail</h2>
+                <input type="text" name="mail" id="mail" class="coolinput">
+                <h2 class="Texte">Mot de passe</h2>
+                <input type="password" name="password" id="mdp" class="coolinput">
+                <button type="submit" id="envoyer" class="button">Envoyer</button>
+            </form>
+			    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+        </center>
+    </body>
+</html>
